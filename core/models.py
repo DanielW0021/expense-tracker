@@ -25,6 +25,7 @@ class Expense(Base):
 
 class Budget(Base):
     __tablename__ = "budgets"
+    category: Mapped[Category] = relationship(init=False)
     category_id: Mapped[int] = mapped_column(ForeignKey('categories.id'))
     limit: Mapped[float] = mapped_column()
     month: Mapped[int] = mapped_column()
